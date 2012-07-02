@@ -7,7 +7,7 @@ The provider plugin registers itself as a Moodle local plugin which handles
 two important UES events:
 
 1. `ues_list_provider`
-2. `ues_load_provider`
+2. `ues_load_fake_provider`
 
 For more information about UES and the enrollment process, please go to the
 [UES wiki][ues].

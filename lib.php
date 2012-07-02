@@ -6,7 +6,7 @@ abstract class fake_enrollment_events {
         return true;
     }
 
-    public static function ues_load_provider($data) {
+    public static function ues_load_fake_provider($data) {
         require_once dirname(__FILE__) . '/provider.php';
         return true;
     }

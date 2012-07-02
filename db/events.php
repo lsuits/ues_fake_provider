@@ -8,6 +8,6 @@ $mapper = function($event) {
     );
 };
 
-$events = array('ues_list_provider', 'ues_load_provider');
+$events = array('ues_list_provider', 'ues_load_fake_provider');
 
 $handlers = array_combine($events, array_map($mapper, $events));

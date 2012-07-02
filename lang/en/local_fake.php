@@ -1,6 +1,6 @@
 <?php
 
-$string['plugginame'] = 'Fake Source Enrollment Provider';
+$string['pluginname'] = 'Fake Source Enrollment Provider';
 
 $string['course_variant'] = 'Course Variations';
 $string['course_variant_desc'] = 'These are course department variations.';

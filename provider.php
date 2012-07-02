@@ -282,7 +282,7 @@ class fake_enrollment_provider extends enrollment_provider {
         return true;
     }
 
-    public static function settings($settings) {
+    public function settings($settings) {
         parent::settings($settings);
 
         require_once dirname(__FILE__) . '/adminlib.php';
