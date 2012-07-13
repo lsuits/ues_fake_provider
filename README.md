@@ -13,3 +13,14 @@ For more information about UES and the enrollment process, please go to the
 [UES wiki][ues].
 
 [ues]: https://github.com/lsuits/ues/wiki
+
+## Installation
+
+Fake enrollment information installs as a Moodle [local plugin][local] to be
+used with UES. Once installed, UES must be configured to use it.
+
+[local]: http://docs.moodle.org/dev/Local_plugins
+
+## License
+
+Fake enrollment adopts the same license that Moodle itself does.
