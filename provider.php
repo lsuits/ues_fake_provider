@@ -7,9 +7,11 @@ class fake_semesters implements semester_processor {
         $semester_length = 120 * $one_day;
 
         $now = strtotime($date_threshold);
+        $today = new DateTime();
+        $this_year = (int)$today->format('Y');
 
         $first = new stdclass;
-        $first->year = 2011;
+        $first->year = $this_year;
         $first->name = 'Fall';
         $first->campus = 'Fake';
         $first->session_key = '';
@@ -17,12 +19,13 @@ class fake_semesters implements semester_processor {
         $first->grades_due = $now + $semester_length;
 
         $second = new stdClass;
-        $second->year = 2012;
+        $second->year = $this_year+1;
         $second->name = 'Spring';
         $second->campus = 'Fake';
         $second->session_key = '';
         $second->classes_start = $first->grades_due + $one_week;
-
+        $second->grades_due = $second->classes_start + $semester_length;
+        
         return array($first, $second);
     }
 }
@@ -89,8 +92,8 @@ class fake_teachers implements teacher_processor {
 
     function teachers($semester, $course, $section) {
         $teachers = array();
-
-        $num = end(str_split($section->sec_number));
+        $sec_num = str_split($section->sec_number);
+        $num = end($sec_num);
 
         $i = rand(0, 10);
 
@@ -117,6 +120,7 @@ class fake_teachers implements teacher_processor {
 
         if ($num % 2 != 0 and $this->teacher_variant > 1) {
             list($firstname, $lastname) = explode(' ', 'Second Teacher '. $i);
+            $second = new stdClass();
             $second->primary_flag = 0;
             $second->username = strtolower($lastname . $i);
             $second->idnumber = sprintf('123000%d0', ($i + 1));

@@ -1,7 +1,7 @@
 <?php
 
 require_once dirname(__FILE__) . '/cleanuplib.php';
-require_once '../../../../config.php';
+require_once dirname(__FILE__).'/../../config.php';
 
 require_login();
 
