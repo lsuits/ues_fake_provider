@@ -2,9 +2,9 @@
 
 class fake_semesters implements semester_processor {
     function semesters($date_threshold) {
-        $one_day = 24 * 60 * 60;
-        $one_week = 7 * $one_day;
-        $semester_length = 120 * $one_day;
+        $day = 24 * 60 * 60;
+        $week = 7 * $day;
+        $semester = 120 * $day;
 
         $now = strtotime($date_threshold);
         $today = new DateTime();
@@ -16,15 +16,15 @@ class fake_semesters implements semester_processor {
         $first->campus = 'Fake';
         $first->session_key = '';
         $first->classes_start = $now;
-        $first->grades_due = $now + $semester_length;
+        $first->grades_due = $now + $semester;
 
         $second = new stdClass;
         $second->year = $this_year+1;
         $second->name = 'Spring';
         $second->campus = 'Fake';
         $second->session_key = '';
-        $second->classes_start = $first->grades_due + $one_week;
-        $second->grades_due = $second->classes_start + $semester_length;
+        $second->classes_start = $first->grades_due + $week;
+        $second->grades_due = $second->classes_start + $semester;
         
         return array($first, $second);
     }
@@ -233,10 +233,10 @@ class fake_teacher_by_department implements teacher_by_department {
 
 class fake_enrollment_provider extends enrollment_provider {
     var $settings = array(
-        'course_variant' => 10,
-        'section_variant' => 4,
+        'course_variant'  => 5,
+        'section_variant' => 3,
         'teacher_variant' => 2,
-        'student_variant' => 20
+        'student_variant' => 5
     );
 
     function semester_source() {
