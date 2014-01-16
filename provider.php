@@ -299,7 +299,7 @@ class fake_enrollment_provider extends enrollment_provider {
 
         $settings->add(new admin_setting_link($key . '/cleanup',
             $_s('cleanup'), $_s('cleanup_desc'),
-            '/enrol/ues/plugins/fake/cleanup.php'));
+            '/local/fake/cleanup.php'));
 
         $settings->add(new admin_setting_configcheckbox($key . '/cleanuprun',
             $_s('cleanuprun'), $_s('cleanuprun_desc'), 0));
